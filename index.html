@@ -56,6 +56,12 @@
   .note { color: var(--dim); margin: 0; }
   .out p { margin: 0 0 .35rem; }
   .out ul { list-style: none; margin: 0; padding: 0; }
+  .out li { overflow-wrap: anywhere; }
+  .certs li { display: grid; grid-template-columns: 8ch 15ch 1fr; column-gap: 1.25rem; margin-bottom: .25rem; }
+  .c-d, .c-i, .tag { color: var(--dim); }
+  .tag.d { display: block; font-size: .85rem; }
+  .ctfs li { grid-template-columns: 8ch 17ch 1fr; }
+  .ctfs .c-i { color: var(--cyan); }
 
   .hero-out { opacity: 1; transition: opacity .6s ease; }
   .js .hero-out { opacity: 0; }
@@ -80,6 +86,10 @@
     dl { grid-template-columns: 1fr; gap: 0; }
     dd { margin-bottom: .6rem; }
     .date { display: none; }
+    .certs li { grid-template-columns: 8ch 1fr; margin-bottom: .6rem; }
+    .c-d { grid-column: 1; grid-row: 1; }
+    .c-n { grid-column: 2; grid-row: 1; }
+    .c-i { grid-column: 2; grid-row: 2; }
   }
   @media (prefers-reduced-motion: reduce) {
     .cursor { animation: none; }
@@ -106,17 +116,53 @@
         </dl>
       </div>
 
+      <p class="cmd" id="certificaciones"><span class="ps"><b>fabio@panama</b>:~$</span> <span data-i="cmd_certs">ls -l certificaciones/</span></p>
+      <div class="out">
+        <p>total 7</p>
+        <ul class="certs">
+          <li><span class="c-d">2025-04</span><span class="c-i">Cisco</span><span class="c-n">CCNA: Introduction to Networks</span></li>
+          <li><span class="c-d">2025-04</span><span class="c-i">Cisco</span><span class="c-n">Introduction to Cybersecurity</span></li>
+          <li><span class="c-d">2025-05</span><span class="c-i">Código Facilito</span><span class="c-n">Bootcamp Azure AI Engineer Associate<span class="tag d" data-i="d_azure">12 semanas, más de 30 horas de clases</span></span></li>
+          <li><span class="c-d">2025-08</span><span class="c-i">Cisco</span><span class="c-n">CCNA: Switching, Routing, and Wireless Essentials</span></li>
+          <li><span class="c-d">2025-11</span><span class="c-i">Cisco</span><span class="c-n">CCNA: Enterprise Networking, Security, and Automation</span></li>
+          <li><span class="c-d">2025-12</span><span class="c-i">AWS</span><span class="c-n">AWS Academy Graduate - Cloud Foundations</span></li>
+          <li><span class="c-d">2026-06</span><span class="c-i">Cisco</span><span class="c-n">Ethical Hacker</span></li>
+        </ul>
+      </div>
+
+      <p class="cmd" id="eventos"><span class="ps"><b>fabio@panama</b>:~$</span> <span data-i="cmd_events">ls -l eventos/</span></p>
+      <div class="out">
+        <p>total 3</p>
+        <ul class="certs">
+          <li><span class="c-d">2026</span><span class="c-i">Cisco</span><span class="c-n">Networking Academy Capture the Flag <span class="tag" data-i="tag_part">(participante)</span></span></li>
+          <li><span class="c-d">2026</span><span class="c-i">Cisco</span><span class="c-n">Networking Academy Learn-A-Thon <span class="tag" data-i="tag_part">(participante)</span></span></li>
+          <li><span class="c-d">2025</span><span class="c-i">Cisco</span><span class="c-n">Networking Academy Learn-A-Thon <span class="tag" data-i="tag_part">(participante)</span></span></li>
+        </ul>
+      </div>
+
+      <p class="cmd" id="ctfs"><span class="ps"><b>fabio@panama</b>:~$</span> <span data-i="cmd_ctfs">ls -l ctfs/</span></p>
+      <div class="out">
+        <p>total 5</p>
+        <ul class="certs ctfs">
+          <li><span class="c-d">2026-10</span><span class="c-i" data-i="r_249">puesto 249 de 1119</span><span class="c-n">HI Cyber Con 2026<span class="tag d" data-i="d_team">en equipo</span></span></li>
+          <li><span class="c-d">2026-09</span><span class="c-i" data-i="r_win">ganador</span><span class="c-n">OEA Cyberchallenge Panamá 2026<span class="tag d" data-i="d_team">en equipo</span></span></li>
+          <li><span class="c-d">2026-08</span><span class="c-i" data-i="r_41">top 41 de 229</span><span class="c-n">OAS Cyber Americas Cup<span class="tag d" data-i="d_team">en equipo</span></span></li>
+          <li><span class="c-d">2026-08</span><span class="c-i" data-i="r_8">top 8 de 31</span><span class="c-n">WHOAMI-Labs CTF Blackout LATAM<span class="tag d" data-i="d_solo">individual</span></span></li>
+          <li><span class="c-d">2026-06</span><span class="c-i" data-i="r_73">puesto 73 de 598</span><span class="c-n">Cisco Cyber Games Americas 2026<span class="tag d" data-i="d_cisco">división en español</span></span></li>
+        </ul>
+      </div>
+
       <p class="cmd" id="contenido"><span class="ps"><b>fabio@panama</b>:~$</span> <span data-i="cmd_ls">ls contenido/</span></p>
       <div class="out">
         <p>total 0</p>
-        <p class="note" data-i="note"># Se que se ve un poco vacio, pero es algo temporal, iré subiendo cosas en cuanto pueda :).</p>
+        <p class="note" data-i="note"># Iré actualizando esta sección con write-ups.</p>
       </div>
 
       <p class="cmd" id="contacto"><span class="ps"><b>fabio@panama</b>:~$</span> <span data-i="cmd_cat">cat contacto.txt</span></p>
       <div class="out">
         <ul>
           <li>github&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/MrXha0">github.com/MrXha0</a></li>
-          <li>linkedin&nbsp;<a href="https://www.linkedin.com/in/TU-PERFIL">www.linkedin.com/in/fabio-cisneros-13b8b8321</a></li>
+          <li>linkedin&nbsp;<a href="https://www.linkedin.com/in/fabio-cisneros-13b8b8321">linkedin.com/in/fabio-cisneros-13b8b8321</a></li>
         </ul>
       </div>
 
@@ -129,8 +175,10 @@
   <div class="tmux-in">
     <span class="sess">portafolio</span>
     <a href="#whoami">0:whoami</a>
-    <a href="#contenido" data-i="nav_content">1:contenido</a>
-    <a href="#contacto" data-i="nav_contact">2:contacto</a>
+    <a href="#certificaciones" data-i="nav_certs">1:certs</a>
+    <a href="#ctfs" data-i="nav_ctfs">2:ctfs</a>
+    <a href="#contenido" data-i="nav_content">3:contenido</a>
+    <a href="#contacto" data-i="nav_contact">4:contacto</a>
     <div class="tools"><span class="date" data-i="date">noviembre 2026</span><button type="button" class="lang" id="lang" aria-label="Switch to English">EN</button></div>
   </div>
 </nav>
@@ -159,18 +207,26 @@
         k_name: "nombre", k_study: "estudios", v_study: "Último año de Ciberseguridad",
         k_uni: "universidad", k_country: "país", v_country: "Panamá",
         k_status: "estado", v_status: "en construcción",
-        cmd_ls: "ls contenido/", cmd_cat: "cat contacto.txt",
-        note: "# Carpeta vacía por ahora. Aquí irán mis proyectos y documentos.",
-        nav_content: "1:contenido", nav_contact: "2:contacto", date: "noviembre 2026",
+        cmd_ls: "ls contenido/", cmd_cat: "cat contacto.txt", cmd_certs: "ls -l certificaciones/", cmd_events: "ls -l eventos/", tag_part: "(participante)",
+        cmd_ctfs: "ls -l ctfs/", r_win: "ganador", r_41: "top 41 de 229", r_8: "top 8 de 31", r_73: "puesto 73 de 598",
+        r_249: "puesto 249 de 1119",
+        d_team: "en equipo", d_solo: "individual", d_cisco: "división en español",
+        d_azure: "12 semanas, más de 30 horas de clases",
+        note: "# Iré actualizando esta sección con write-ups.",
+        nav_certs: "1:certs", nav_ctfs: "2:ctfs", nav_content: "3:contenido", nav_contact: "4:contacto", date: "noviembre 2026",
         btn: "EN", label: "Switch to English"
       },
       en: {
         k_name: "name", k_study: "studies", v_study: "Final-year Cybersecurity",
         k_uni: "university", k_country: "country", v_country: "Panama",
         k_status: "status", v_status: "under construction",
-        cmd_ls: "ls content/", cmd_cat: "cat contact.txt",
-        note: "# Empty folder for now. My projects and documents will go here.",
-        nav_content: "1:content", nav_contact: "2:contact", date: "November 2026",
+        cmd_ls: "ls content/", cmd_cat: "cat contact.txt", cmd_certs: "ls -l certifications/", cmd_events: "ls -l events/", tag_part: "(participant)",
+        cmd_ctfs: "ls -l ctfs/", r_win: "winner", r_41: "top 41 of 229", r_8: "top 8 of 31", r_73: "rank 73 of 598",
+        r_249: "rank 249 of 1119",
+        d_team: "team", d_solo: "individual", d_cisco: "Spanish-language division",
+        d_azure: "12 weeks, 30+ class hours",
+        note: "# I'll keep updating this section with write-ups.",
+        nav_certs: "1:certs", nav_ctfs: "2:ctfs", nav_content: "3:content", nav_contact: "4:contact", date: "November 2026",
         btn: "ES", label: "Cambiar a español"
       }
     };
